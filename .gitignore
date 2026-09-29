@@ -1,0 +1,74 @@
+# ============================================================
+# Chatting with Your DB - .gitignore
+# Goal: never commit secrets, credentials, or live data.
+# ============================================================
+
+# --- Secrets & environment files --------------------------------
+.env
+.env.*
+!.env.example
+*.env
+secrets/
+*.secret
+*.secrets
+
+# --- Keys & certificates ----------------------------------------
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+
+# --- n8n exports that may contain credentials or instance data --
+# Raw exports straight from n8n (credential IDs, instanceId, webhook IDs)
+*.raw.json
+*.private.json
+*_raw.json
+*-raw.json
+n8n-credentials*.json
+credentials*.json
+*_credentials.json
+# Keep the sanitized workflow tracked
+!workflow/Chatting_with_Your_DB.json
+
+# --- Local runtime data (Docker volumes / bind mounts) ----------
+n8n_data/
+mongo_data/
+mongodb_data/
+data/db/
+.n8n/
+
+# --- Database dumps & backups -----------------------------------
+dump/
+backup/
+backups/
+*.bson
+*.archive
+*.gz
+*.bak
+
+# --- Logs -------------------------------------------------------
+*.log
+logs/
+npm-debug.log*
+
+# --- Dependencies & build output --------------------------------
+node_modules/
+__pycache__/
+*.pyc
+
+# --- OS / editor files ------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- Temporary files --------------------------------------------
+tmp/
+temp/
+*.tmp

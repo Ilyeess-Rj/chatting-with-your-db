@@ -1,0 +1,48 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: stock-mongo
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGO_DB_NAME}
+      # Read by mongo/init-mongo.js to create the least-privilege user
+      MONGO_APP_USER: ${MONGO_APP_USER}
+      MONGO_APP_PASSWORD: ${MONGO_APP_PASSWORD}
+    volumes:
+      - mongo_data:/data/db
+      - ./mongo/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - ./mongo/sample_products.json:/seed/sample_products.json:ro
+    # Bound to localhost only: MongoDB must never be exposed to the internet.
+    ports:
+      - "127.0.0.1:27017:27017"
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  n8n:
+    image: docker.n8n.io/n8nio/n8n:latest # pin a specific version in production
+    container_name: stock-n8n
+    restart: unless-stopped
+    depends_on:
+      mongo:
+        condition: service_healthy
+    ports:
+      - "${N8N_PORT:-5678}:5678"
+    environment:
+      N8N_HOST: ${N8N_HOST:-localhost}
+      N8N_PORT: 5678
+      N8N_PROTOCOL: ${N8N_PROTOCOL:-http}
+      WEBHOOK_URL: ${WEBHOOK_URL}
+      N8N_ENCRYPTION_KEY: ${N8N_ENCRYPTION_KEY}
+      GENERIC_TIMEZONE: ${GENERIC_TIMEZONE:-Africa/Tunis}
+      TZ: ${GENERIC_TIMEZONE:-Africa/Tunis}
+    volumes:
+      - n8n_data:/home/node/.n8n
+
+volumes:
+  mongo_data:
+  n8n_data:
