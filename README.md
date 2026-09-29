@@ -9,7 +9,7 @@
 > 🚀 **An intelligent Telegram assistant that transforms a MongoDB catalog into a proactive Business Intelligence (BI) partner.**  
 > Built with **n8n**, **LangChain AI Agents**, **Dual-Layer Guardrails**, and real-time **market grounding**.
 > 
-> 🗣️ **Trilingual by Design:** Chat seamlessly in **Arabic** (العربية / الدارجة التونسية), **English**, or **French** (Français). The AI automatically mirrors your language and dialect while preserving catalog product specifications strictly in French.
+> 🗣️ **Trilingual by Design:** Chat seamlessly in **Modern Standard Arabic** (العربية الفصحى), **English**, or **French** (Français). The AI automatically mirrors your chosen language while preserving catalog technical specifications strictly in French.
 
 👨‍💻 **Built with ❤️ by M.I.R.**
 
@@ -47,6 +47,7 @@ Dual-layer defense system (Input/Output Guardrails), multi-LLM orchestrator with
 - [🚧 13. Known Limitations & Roadmap](#-13-known-limitations--roadmap)
 - [🩺 14. Troubleshooting](#-14-troubleshooting)
 - [📁 15. Project Directory Structure](#-15-project-directory-structure)
+- [📜 16. License](#-16-license)
 
 ---
 
@@ -69,9 +70,9 @@ This project elevates catalog management into an **interactive strategic convers
 
 The bot features **Strict Adaptive Language Mirroring** and is fully fluent in three languages:
 
-| Language | Scope & Dialect Handling | Example Prompt |
+| Language | Scope & Phrasing | Example Prompt |
 | :--- | :--- | :--- |
-| 🇹🇳 **Arabic / الدارجة التونسية** | Understands Tunisian dialect, phrasing, tech slang (مانيطا، بيسي، كيت), and Standard Arabic. Responds with full Tunisian context. | `شنوة أغلى لابتوب عندنا في الستوك؟` / `اعملي تحليل على ستوك الحواسيب` |
+| 🌐 **Arabic (العربية الفصحى)** | Comprehensive support for Modern Standard Arabic (الفصحى) with formal business vocabulary and accurate syntax. | `ما هو أغلى حاسوب محمول لدينا في المخزون؟` / `قدم لي تحليلاً شاملاً لمخزون الحواسيب` |
 | 🇬🇧 **English** | Professional business and technical briefing in English. | `"What is our slowest-moving product this quarter?"` / `"Give me a competitive market check on RTX 4050."` |
 | 🇫🇷 **Français** | Full conversational French with executive business vocabulary. | *« Quel est le produit avec le stock le plus critique ? »* / *« Compare nos prix avec le marché local. »* |
 
@@ -105,7 +106,7 @@ Every report systematically concludes with **exactly 3 strategic follow-up quest
 ## ✨ 4. Key Features
 
 - 🗣️ **Conversational CRUD:** Search, add, update, and delete catalog items in natural language.
-- 🇹🇳 **Adaptive Dialect & Language Mirroring:** Matches the user's language (Arabic, French, or English) dynamically.
+- 🌐 **Adaptive Language Mirroring:** Matches the user's language (Modern Standard Arabic, French, or English) dynamically.
 - 📈 **Real-Time Tunisian Market Grounding:** Fetches live competitor prices, market trends, and purchase recommendations from Tunisian sources (*Tunisianet, MyTek, Scoop, SBS, Wiki*).
 - 🛡️ **Dual-Layer Security Guardrails:** 
   - Prevents prompt injections, system prompt extraction, mass deletion, and destructive queries (`drop table`, `$where`, `$ne`, `eval()`).
@@ -304,7 +305,7 @@ All sensitive secrets are encrypted using `N8N_ENCRYPTION_KEY`:
 ## ⚙️ 10. Customization & Settings
 
 * 🏢 **Company Branding:** Search for `"Synapse Digital"` in `AI Agent Website` system prompt and change to your company name.
-* 📚 **Category Dictionary:** Edit the `CATEGORY DICTIONARY` block inside the agent to map custom dialect words (e.g., `مانيطا` -> `manette`).
+* 📚 **Category Dictionary:** Edit the `CATEGORY DICTIONARY` block inside the agent to map custom Arabic terms and synonyms (e.g., `شاشة` -> `ecran pc`, `لوحة مفاتيح` -> `clavier`).
 * 🎚️ **Guardrail Strictness:** Adjust the `threshold` setting in `Guardrails` (ranges from 0.0 to 1.0; 0.5 recommended).
 
 ---
@@ -315,12 +316,12 @@ All sensitive secrets are encrypted using `N8N_ENCRYPTION_KEY`:
 
 | Intent | Language | Sample Message |
 | :--- | :--- | :--- |
-| 💎 **Most Expensive Item** | 🇹🇳 Arabic (Tunisian) | `شنوة أغلى منتج عندنا في الستوك؟` |
+| 💎 **Most Expensive Item** | 🌐 Arabic (العربية الفصحى) | `ما هو أغلى منتج لدينا في المخزون؟` |
 | 🏷️ **Cheapest Accessories** | 🇫🇷 Français | *« Quel est notre accessoire le moins cher actuellement ? »* |
 | 📊 **Stock Stagnation & Risk** | 🇬🇧 English | `"Analyze stock rotation for high-end gaming laptops."` |
-| 🌐 **Competitor Intelligence** | 🇹🇳 Arabic (Tunisian) | `قارن سوم Lenovo LOQ مع أسعار المنافسين في السوق التونسي` |
+| 🌐 **Competitor Intelligence** | 🌐 Arabic (العربية الفصحى) | `قارن سعر Lenovo LOQ مع أسعار المنافسين في السوق المحلي` |
 | ✏️ **Price / Stock Adjustment** | 🇫🇷 Français | *« Mets à jour le stock du clavier Logitech MX Keys à 15 unités »* |
-| ➕ **Adding New Catalog Product**| 🇹🇳 Arabic (Tunisian) | `زيد منتج جديد Dell XPS 15 سوم 6500 TND وستوك 4 وحدات` |
+| ➕ **Adding New Catalog Product**| 🌐 Arabic (العربية الفصحى) | `أضف منتجاً جديداً Dell XPS 15 بسعر 6500 TND ومخزون 4 وحدات` |
 
 ### 📋 Mandatory Response Format Template:
 
@@ -385,8 +386,33 @@ chatting-with-your-db/
 ├── docker-compose.yml                # Multi-container orchestration (MongoDB + n8n)
 ├── .env.example                      # Configuration template
 ├── .gitignore                        # Protection against credential leaks
+├── LICENSE                           # Apache 2.0 open-source legal terms
 └── README.md                         # Documentation & user guide
 ```
+
+---
+
+## 📜 16. License
+
+This project is licensed under the **Apache License 2.0** — an open-source permissive license that allows free commercial and private use, modification, and distribution.
+
+```text
+Copyright 2026 M.I.R.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
+
+For the complete legal text, permissions, and conditions, please consult the [LICENSE](LICENSE) file in the repository root.
 
 ---
 
