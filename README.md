@@ -7,26 +7,21 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 
 > 🚀 **An intelligent Telegram assistant that transforms a MongoDB catalog into a proactive Business Intelligence (BI) partner.**  
-> Built with **n8n**, **LangChain AI Agents**, **Dual-Layer Guardrails**, and real-time **market grounding**. Communicates fluently in **Tunisian Arabic dialect**, **French**, or **English**.
+> Built with **n8n**, **LangChain AI Agents**, **Dual-Layer Guardrails**, and real-time **market grounding**.
+> 
+> 🗣️ **Trilingual by Design:** Chat seamlessly in **Arabic** (العربية / الدارجة التونسية), **English**, or **French** (Français). The AI automatically mirrors your language and dialect while preserving catalog product specifications strictly in French.
 
 👨‍💻 **Built with ❤️ by M.I.R.**
 
 ---
 
-## 📸 Visual Showcase & Real-World Demo
+## 📸 Workflow Architecture
 
-### 🛠️ 1. Complete n8n Automated Architecture
+### 🛠️ Complete n8n Automated Pipeline
 Dual-layer defense system (Input/Output Guardrails), multi-LLM orchestrator with automatic fallback, conversation memory, 4 MongoDB tools, and live Tunisian market research via Google Gemini:
 
 <p align="center">
   <img src="assets/n8n_workflow_canvas.png" alt="n8n Workflow Canvas" width="100%">
-</p>
-
-### 💬 2. Live Strategic Business Intelligence in Action (Telegram)
-Notice how the bot doesn't just return data; it provides an **in-depth financial and operational analysis**, warns of **dead-stock risks (60–90 days)**, gives **commercial recommendations (bundles & margins)**, and ends with **3 strategic follow-up questions** for executive decision-making:
-
-<p align="center">
-  <img src="assets/telegram_bi_report.png" alt="Telegram BI Report Live Demo" width="65%">
 </p>
 
 ---
@@ -34,23 +29,24 @@ Notice how the bot doesn't just return data; it provides an **in-depth financial
 ## 📑 Table of Contents
 
 - [🎯 1. Main Goal & Philosophy](#-1-main-goal--philosophy)
-- [✨ 2. Key Features](#-2-key-features)
-- [🧠 3. Strategic Intelligence: More Than Just a Chatbot](#-3-strategic-intelligence-more-than-just-a-chatbot)
-- [🏗️ 4. System Architecture](#️-4-system-architecture)
-  - [4.1 High-Level Flow](#41-high-level-flow)
-  - [4.2 Step-by-Step Execution](#42-step-by-step-execution)
-  - [4.3 Node Inventory](#43-node-inventory)
-  - [4.4 Guardrail Security Layers](#44-guardrail-security-layers)
-- [💡 5. Why We Chose Each Component](#-5-why-we-chose-each-component)
-- [⚡ 6. Quick Start Guide](#-6-quick-start-guide)
-- [🗄️ 7. MongoDB Configuration](#️-7-mongodb-configuration)
-- [🔑 8. Credentials Setup](#-8-credentials-setup)
-- [⚙️ 9. Customization & Settings](#️-9-customization--settings)
-- [💬 10. Usage Examples & Strategic Prompts](#-10-usage-examples--strategic-prompts)
-- [🛡️ 11. Enterprise Security](#️-11-enterprise-security)
-- [🚧 12. Known Limitations & Roadmap](#-12-known-limitations--roadmap)
-- [🩺 13. Troubleshooting](#-13-troubleshooting)
-- [📁 14. Project Directory Structure](#-14-project-directory-structure)
+- [🗣️ 2. Trilingual Conversational Capabilities](#️-2-trilingual-conversational-capabilities)
+- [🧠 3. Strategic Intelligence: More Than Just Answering Questions](#-3-strategic-intelligence-more-than-just-answering-questions)
+- [✨ 4. Key Features](#-4-key-features)
+- [🏗️ 5. System Architecture](#️-5-system-architecture)
+  - [5.1 High-Level Flow](#51-high-level-flow)
+  - [5.2 Step-by-Step Execution](#52-step-by-step-execution)
+  - [5.3 Node Inventory](#53-node-inventory)
+  - [5.4 Guardrail Security Layers](#54-guardrail-security-layers)
+- [💡 6. Why We Chose Each Component](#-6-why-we-chose-each-component)
+- [⚡ 7. Quick Start Guide](#-7-quick-start-guide)
+- [🗄️ 8. MongoDB Configuration](#️-8-mongodb-configuration)
+- [🔑 9. Credentials Setup](#-9-credentials-setup)
+- [⚙️ 10. Customization & Settings](#️-10-customization--settings)
+- [💬 11. Usage Examples & Strategic Prompts](#-11-usage-examples--strategic-prompts)
+- [🛡️ 12. Enterprise Security](#️-12-enterprise-security)
+- [🚧 13. Known Limitations & Roadmap](#-13-known-limitations--roadmap)
+- [🩺 14. Troubleshooting](#-14-troubleshooting)
+- [📁 15. Project Directory Structure](#-15-project-directory-structure)
 
 ---
 
@@ -69,10 +65,47 @@ This project elevates catalog management into an **interactive strategic convers
 
 ---
 
-## ✨ 2. Key Features
+## 🗣️ 2. Trilingual Conversational Capabilities
+
+The bot features **Strict Adaptive Language Mirroring** and is fully fluent in three languages:
+
+| Language | Scope & Dialect Handling | Example Prompt |
+| :--- | :--- | :--- |
+| 🇹🇳 **Arabic / الدارجة التونسية** | Understands Tunisian dialect, phrasing, tech slang (مانيطا، بيسي، كيت), and Standard Arabic. Responds with full Tunisian context. | `شنوة أغلى لابتوب عندنا في الستوك؟` / `اعملي تحليل على ستوك الحواسيب` |
+| 🇬🇧 **English** | Professional business and technical briefing in English. | `"What is our slowest-moving product this quarter?"` / `"Give me a competitive market check on RTX 4050."` |
+| 🇫🇷 **Français** | Full conversational French with executive business vocabulary. | *« Quel est le produit avec le stock le plus critique ? »* / *« Compare nos prix avec le marché local. »* |
+
+> 📌 **Strict Catalog Separation Rule:** While the conversational dialogue, analysis, recommendations, and strategic questions mirror your chosen language (Arabic, English, or French), **all technical product specs, storage capacities, and hardware titles remain 100% in French** on their own lines (e.g. `🔸 Produit: ... | Capacité: ... | Prix: ...`). This prevents clumsy translations of hardware terms and matches standard e-commerce practice.
+
+---
+
+## 🧠 3. Strategic Intelligence: More Than Just Answering Questions
+
+Unlike a standard search bot that merely regurgitates database records, **SYNAPSE AI** thinks and behaves like an embedded **Senior Business Intelligence Analyst**:
+
+### 🔍 1. Proactive Inventory & Risk Analysis
+* **Capital Lockup & Stagnation:** Warns when high-ticket items (e.g. desktops or laptops priced over 10,000 TND) remain in stock without rotation, flagging the risk of margins eroding if units sit for **60–90 days**.
+* **Turnover & Stock Velocity:** Detects fast-moving vs. sluggish items and evaluates whether stock levels are proportional to sales pace.
+* **Cannibalization & Pricing Gaps:** Identifies when two models are priced too closely together, causing one to cannibalize the other.
+
+### 💡 2. Expert Commercial Opinions & Guidance
+* Gives its expert opinion on how you manage your catalog:
+  * 📦 **Bundle Strategies:** Recommends bundling slow-moving units with high-margin peripherals (*gaming mice, headsets, mechanical keyboards*) to accelerate sales without slashing core unit prices.
+  * 🏷️ **Dynamic Discount Advice:** Suggests temporary, targeted price adjustments when local competitors (*Tunisianet, MyTek, Scoop*) undercut prices.
+  * ⚠️ **Restock Thresholds:** Proactively flags when to reorder before running into an out-of-stock emergency.
+
+### 🤝 3. Strategic Follow-up Questions for Executive Debate
+Every report systematically concludes with **exactly 3 strategic follow-up questions** designed to stimulate high-level debate with the manager:
+1. *Market Positioning:* How does our price compare against similar alternatives in the local market?
+2. *Holding Cost Optimization:* What is the optimal stock level to maintain balance between availability and storage expense?
+3. *Sales Acceleration:* Should we launch promotional bundles or adjust the reorder trigger point?
+
+---
+
+## ✨ 4. Key Features
 
 - 🗣️ **Conversational CRUD:** Search, add, update, and delete catalog items in natural language.
-- 🇹🇳 **Adaptive Dialect & Language Mirroring:** Matches the user's dialect (Tunisian Derja, standard Arabic, French, or English), while isolating technical product specs cleanly in **100% French**.
+- 🇹🇳 **Adaptive Dialect & Language Mirroring:** Matches the user's language (Arabic, French, or English) dynamically.
 - 📈 **Real-Time Tunisian Market Grounding:** Fetches live competitor prices, market trends, and purchase recommendations from Tunisian sources (*Tunisianet, MyTek, Scoop, SBS, Wiki*).
 - 🛡️ **Dual-Layer Security Guardrails:** 
   - Prevents prompt injections, system prompt extraction, mass deletion, and destructive queries (`drop table`, `$where`, `$ne`, `eval()`).
@@ -84,33 +117,9 @@ This project elevates catalog management into an **interactive strategic convers
 
 ---
 
-## 🧠 3. Strategic Intelligence: More Than Just a Chatbot
+## 🏗️ 5. System Architecture
 
-Unlike standard bots that passively echo database fields, **SYNAPSE AI** operates like a **Senior Business Intelligence Analyst** briefing an executive:
-
-### 🔍 1. Proactive Risk & Velocity Detection
-* Identifies **slow-moving, high-value inventory** (e.g. PCs priced over 10,000 TND).
-* Calculates capital lockup risks: warns when products remain stagnant over **60–90 days**.
-* Detects cannibalization between similar product tiers.
-
-### 💡 2. Expert Commercial Recommendations
-* Never gives plain numbers without business context.
-* Suggests actionable commercial strategies:
-  * 📦 **Bundles with Peripherals:** Combining slow-moving towers with gaming mice/headsets to accelerate turnover without eroding core margins.
-  * 🏷️ **Targeted Discounts:** Dynamic pricing adjustments to outmaneuver local competitors.
-  * ⚠️ **Restock Urgency:** Alerting the manager before critical shortages occur.
-
-### 🤝 3. Strategic Follow-up Questions for Executive Debate
-Every response concludes with **3 strategic questions** tailored to prompt collaborative decision-making:
-1. *Comparative Market Analysis* (e.g. comparing against competing models like MSI Aegis or Asus Prime).
-2. *Inventory Holding Cost Optimization* (evaluating minimum reorder thresholds).
-3. *Sales Velocity Assessment* (analyzing average turnaround time vs. category norms).
-
----
-
-## 🏗️ 4. System Architecture
-
-### 4.1 High-Level Flow
+### 5.1 High-Level Flow
 
 ```mermaid
 flowchart LR
@@ -151,7 +160,7 @@ flowchart LR
     W2 --> U
 ```
 
-### 4.2 Step-by-Step Execution
+### 5.2 Step-by-Step Execution
 1. 📥 **Telegram Trigger:** Receives webhook payload on every chat update.
 2. 🛡️ **Input Guardrails:** Screens `message.text` through 5 layers. Powered by an ultra-fast OpenRouter LLM (`liquid/lfm-2.5-2.6b:free`).
    - If malicious/off-topic: Dispatches warning and stops.
@@ -160,7 +169,7 @@ flowchart LR
 4. 🛡️ **Output Guardrails:** Re-verifies the agent's drafted message to ensure zero prompt leakage or forbidden code.
 5. 📤 **Telegram Messenger:** Transmits the HTML report directly to the manager.
 
-### 4.3 Node Inventory
+### 5.3 Node Inventory
 
 | Node | Type | Purpose |
 | :--- | :--- | :--- |
@@ -181,7 +190,7 @@ flowchart LR
 | **Send a text message** | `telegram` | Sends HTML formatted intelligence reports |
 | **Send a text message1 / 2** | `telegram` | Alerts user when input or output violates security |
 
-### 4.4 Guardrail Security Layers
+### 5.4 Guardrail Security Layers
 
 | Security Check | Check Mechanism | Target Vectors |
 | :--- | :--- | :--- |
@@ -195,7 +204,7 @@ flowchart LR
 
 ---
 
-## 💡 5. Why We Chose Each Component
+## 💡 6. Why We Chose Each Component
 
 * 📱 **Telegram:** Zero app development required. Instant push notifications on iOS and Android with full HTML styling.
 * ⚡ **n8n:** Self-hostable, low-code platform where business logic and data remain completely private within your infrastructure.
@@ -206,7 +215,7 @@ flowchart LR
 
 ---
 
-## ⚡ 6. Quick Start Guide
+## ⚡ 7. Quick Start Guide
 
 ### Prerequisites
 - [Docker](https://docs.docker.com/get-docker/) & Docker Compose installed.
@@ -235,12 +244,12 @@ docker compose exec mongo sh -c 'mongoimport \
 
 1. Open n8n at `http://localhost:5678`.
 2. Navigate to **Workflows → Import from file** and upload `workflow/Chatting_with_Your_DB.json`.
-3. Connect your API keys to the respective nodes (see [Section 8](#-8-credentials-setup)).
+3. Connect your API keys to the respective nodes (see [Section 9](#-9-credentials-setup)).
 4. Toggle workflow to **Active** and start chatting with your bot!
 
 ---
 
-## 🗄️ 7. MongoDB Configuration
+## 🗄️ 8. MongoDB Configuration
 
 The workflow interacts with:
 * **Database:** `stock_db`
@@ -277,7 +286,7 @@ db.products.createIndex({ brand: 1 })
 
 ---
 
-## 🔑 8. Credentials Setup
+## 🔑 9. Credentials Setup
 
 All sensitive secrets are encrypted using `N8N_ENCRYPTION_KEY`:
 
@@ -292,7 +301,7 @@ All sensitive secrets are encrypted using `N8N_ENCRYPTION_KEY`:
 
 ---
 
-## ⚙️ 9. Customization & Settings
+## ⚙️ 10. Customization & Settings
 
 * 🏢 **Company Branding:** Search for `"Synapse Digital"` in `AI Agent Website` system prompt and change to your company name.
 * 📚 **Category Dictionary:** Edit the `CATEGORY DICTIONARY` block inside the agent to map custom dialect words (e.g., `مانيطا` -> `manette`).
@@ -300,22 +309,43 @@ All sensitive secrets are encrypted using `N8N_ENCRYPTION_KEY`:
 
 ---
 
-## 💬 10. Usage Examples & Strategic Prompts
+## 💬 11. Usage Examples & Strategic Prompts
 
-### 🗣️ Strategic Prompts You Can Ask the Bot:
+### 🗣️ Example Strategic Prompts Across Languages:
 
-| Manager Intent | Multilingual Input Example |
-| :--- | :--- |
-| 💎 **Most Expensive Item** | `شنوة أغلى منتج عندنا في الستوك؟` / `Quel est notre produit le plus cher ?` |
-| 🏷️ **Cheapest Item** | `شنوة أرخص أكسسوار موجود؟` / `Donne-moi le produit le moins cher` |
-| 📊 **Stock & Stagnation Risk** | `أعطيني تحليل على ستوك الـ Razer Tomahawk` / `Analyse le stock des laptops gaming` |
-| 🌐 **Competitor Intelligence** | `قارن سوم Lenovo LOQ مع السوق في تونس` / `Analyse le marché pour RTX 4050 en Tunisie` |
-| ✏️ **Fast Catalog Updates** | `بدل سوم الـ MX Master 3S لـ 350 TND` / `Mets le stock à 15` |
-| ➕ **Adding New Stock** | `زيد منتج جديد Dell XPS 15 سوم 6500 TND وستوك 4` |
+| Intent | Language | Sample Message |
+| :--- | :--- | :--- |
+| 💎 **Most Expensive Item** | 🇹🇳 Arabic (Tunisian) | `شنوة أغلى منتج عندنا في الستوك؟` |
+| 🏷️ **Cheapest Accessories** | 🇫🇷 Français | *« Quel est notre accessoire le moins cher actuellement ? »* |
+| 📊 **Stock Stagnation & Risk** | 🇬🇧 English | `"Analyze stock rotation for high-end gaming laptops."` |
+| 🌐 **Competitor Intelligence** | 🇹🇳 Arabic (Tunisian) | `قارن سوم Lenovo LOQ مع أسعار المنافسين في السوق التونسي` |
+| ✏️ **Price / Stock Adjustment** | 🇫🇷 Français | *« Mets à jour le stock du clavier Logitech MX Keys à 15 unités »* |
+| ➕ **Adding New Catalog Product**| 🇹🇳 Arabic (Tunisian) | `زيد منتج جديد Dell XPS 15 سوم 6500 TND وستوك 4 وحدات` |
+
+### 📋 Mandatory Response Format Template:
+
+```html
+📊 <b>[Business Intelligence Report] :</b>
+
+📌 <b>[Stock Status] :</b>
+[Factual insight in the user's language]
+🔸 Produit: [Name] | Capacité: [Specs in French] | Prix: [Price in TND]
+
+💡 <b>[Strategic Analysis] :</b>
+[Insight on turnover speed, capital lockup, and 60-90 days dead stock risks]
+
+⚠️ <b>[Actionable Recommendation] :</b>
+[Expert advice on bundling peripherals, margin protection, or restock thresholds]
+
+💡 <b>[Strategic Follow-Up Questions] :</b>
+🔹 [Strategic Question 1: Competitor market comparison]
+🔹 [Strategic Question 2: Inventory holding cost optimization]
+🔹 [Strategic Question 3: Sales velocity & reorder point]
+```
 
 ---
 
-## 🛡️ 11. Enterprise Security
+## 🛡️ 12. Enterprise Security
 
 * 🧼 **Sanitized Public Export:** All personal chat IDs, credential UUIDs, and webhook secrets were stripped prior to publishing.
 * 🔐 **Least-Privilege Database Role:** The application connects as `n8n_app` with `readWrite` rights exclusively on `stock_db`.
@@ -323,7 +353,7 @@ All sensitive secrets are encrypted using `N8N_ENCRYPTION_KEY`:
 
 ---
 
-## 🚧 12. Known Limitations & Roadmap
+## 🚧 13. Known Limitations & Roadmap
 
 | # | Known Behavior | Recommended Optimization |
 | :-: | :--- | :--- |
@@ -333,7 +363,7 @@ All sensitive secrets are encrypted using `N8N_ENCRYPTION_KEY`:
 
 ---
 
-## 🩺 13. Troubleshooting
+## 🩺 14. Troubleshooting
 
 * **Webhook Error (`HTTPS Required`):** Telegram will only communicate with public HTTPS URLs. Ensure `WEBHOOK_URL` in `.env` is served through Traefik, Nginx, or Cloudflare Tunnel.
 * **Agent Answers "Product Not Found":** Verify that the product name or category is present in the `CATEGORY DICTIONARY` within the system prompt.
@@ -341,13 +371,12 @@ All sensitive secrets are encrypted using `N8N_ENCRYPTION_KEY`:
 
 ---
 
-## 📁 14. Project Directory Structure
+## 📁 15. Project Directory Structure
 
 ```text
 chatting-with-your-db/
 ├── assets/
-│   ├── n8n_workflow_canvas.png       # Screenshot of full n8n pipeline & architecture
-│   └── telegram_bi_report.png        # Screenshot of live Telegram BI report
+│   └── n8n_workflow_canvas.png       # Screenshot of full n8n pipeline & architecture
 ├── mongo/
 │   ├── init-mongo.js                 # Automatic DB initialization & indexing script
 │   └── sample_products.json          # 12 ready-to-test IT products
